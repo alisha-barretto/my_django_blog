@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Blog</title>
+    <title>{% block title %}{% endblock %}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet" type=text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -20,8 +20,10 @@
 <body>
 <div class="page-header">
     {% if user.is_authenticated %}
-    <a href="{% url 'post_draft_list' %}" class="top-menu" style="float: right;font-size: 26pt;color: #ffffff;"><span class="glyphicon glyphicon-list-alt"></span></a>
-    <a href="{% url 'post_new' %}" class="top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;"><i class="fa fa-plus"></i></a>
+        <a href="{% url 'post_draft_list' %}" class="top-menu" style="float: right;font-size: 26pt;color: #ffffff;"><span class="glyphicon glyphicon-list-alt"></span></a>
+        <a href="{% url 'post_new' %}" class="top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;"><i class="fa fa-plus"></i></a>
+    {% else %}
+        <a href = "{% url 'login' %}" class = "top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i></a>
     {% endif %}
     <h1><a href="{% url "post_list" %}">BLOG</a></h1>
 </div>

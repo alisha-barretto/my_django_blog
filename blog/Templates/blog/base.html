@@ -22,6 +22,7 @@
     {% if user.is_authenticated %}
         <a href="{% url 'post_draft_list' %}" class="top-menu" style="float: right;font-size: 26pt;color: #ffffff;"><span class="glyphicon glyphicon-list-alt"></span></a>
         <a href="{% url 'post_new' %}" class="top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;"><i class="fa fa-plus"></i></a>
+        <p class="top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;">Hello, {{ user.username }} <small>(<a href="{% url 'logout' %}">Logout</a>)</small></p>
     {% else %}
         <a href = "{% url 'login' %}" class = "top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i></a>
     {% endif %}

@@ -3,7 +3,7 @@ from crispy_forms.bootstrap import (
     PrependedText, PrependedAppendedText, FormActions)
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Row, Column, Field
+from crispy_forms.layout import Submit
 # from django.contrib.comments.models import Comment
 # from django_comments.models import Comment
 from .models import Post, Comment
@@ -27,4 +27,4 @@ class UserForm(forms.ModelForm):
     helper.add_input(Submit('Sign up','Sign up', css_class = 'btn-primary'))
     class Meta:
         model = User
-        fields = ["username", "email", "password"]
+        fields = ['username', 'email', 'password']

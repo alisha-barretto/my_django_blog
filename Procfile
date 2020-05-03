@@ -1,1 +1,1 @@
-web: gunicorn django_crud_app.wsgi --log-file -
+web: gunicorn alisha-blog-web-app.wsgi --log-file -

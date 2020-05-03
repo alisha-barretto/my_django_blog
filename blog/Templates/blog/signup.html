@@ -1,12 +1,15 @@
 {% extends 'blog/base.html' %}
-{% block title %}Sign up{% endblock %}
+
+{% block title %}Signup{% endblock %}
+
 {% load crispy_forms_tags %}
+
 {% block content %}
-    <div class="panel panel-default" style="width:400px; margin:0 auto;">
-        <h3 style="text-align: center; font-family: sans-serif">Signup</h3>
+    <div class="panel panel-default" style="width: 400px; margin: 0 auto;">
+        <h3 style="text-align: center; font-family: sans-serif">Sign up to check out the features of the blog web app.</h3>
         <div class="panel-body">
             {% crispy form %}
         </div>
     </div>
-{% endblock %}
 
+{% endblock %}

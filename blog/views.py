@@ -9,6 +9,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from blog.forms import UserForm
 from django.http import HttpResponse
+
+
+
 # Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
@@ -28,7 +31,7 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('blog/post_detail.html', pk=post.pk)
+            return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
         stuff_for_frontend = {'form':form}
@@ -97,17 +100,18 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
 
+
+
 def signup(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
             new_user = User.objects.create_user(**form.cleaned_data)
             login(request, new_user)
-            return redirect('blog/post_list.html')
-        else:
-            form = UserForm()
-        return render(request, 'blog/signup.html', {'form':form})
-
+            return redirect('/')
+    else:
+        form = UserForm()
+    return render(request, 'blog/signup.html', {'form': form})
 
 
 

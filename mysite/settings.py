@@ -28,7 +28,7 @@ DEBUG = False
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['alisha-blog-web-app.herokuapp.com']
 
 LOGIN_REDIRECT_URL = 'post_list'
 LOGOUT_REDIRECT_URL = 'post_list'

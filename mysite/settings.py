@@ -28,7 +28,7 @@ DEBUG = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-ALLOWED_HOSTS = ['alisha-blog-web-app.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = 'post_list'
 LOGOUT_REDIRECT_URL = 'post_list'
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['mysite/blog/Templates/blog/'],
+        'DIRS': ['/blog/Templates/blog/'],
         'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [

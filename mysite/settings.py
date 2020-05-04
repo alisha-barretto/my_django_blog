@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x4cwvhqikh^pw9y=2lixrqawz+27u@&3%pu!ugzs%bx2=5&7sz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'False'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

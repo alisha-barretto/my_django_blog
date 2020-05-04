@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?Tangerine:bold,bolditalic|Inconsolata:italic|Droid+Sans" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{%static 'css/blog.css'%}">
+    <script src="https://use.fontawesome.com/2485ad457c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/zenburn.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+</head>
+<body>
+<div class="page-header">
+    {% if user.is_authenticated %}
+        <a href="{% url 'post_draft_list' %}" class="top-menu" style="float: right;font-size: 26pt;color: #ffffff;"><span class="glyphicon glyphicon-list-alt"></span></a>
+        <a href="{% url 'post_new' %}" class="top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;"><i class="fa fa-plus"></i></a>
+        <p class="top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;">Hello, {{ user.username }} <small>(<a href="{% url 'logout' %}">Logout</a>)</small></p>
+    {% else %}
+        <a href = "{% url 'login' %}" class = "top-menu" style="float: right;margin-right: 20px;font-size: 26pt;color: #ffffff;"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i></a>
+    {% endif %}
+    <h1><a href="{% url "post_list" %}">BLOG</a></h1>
+
+</div>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+           {% block content %}
+           {% endblock %}
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

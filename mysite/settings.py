@@ -30,8 +30,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 #ALLOWED_HOSTS = ['alisha-blog-web-app.herokuapp.com','127.0.0.1']
 
-LOGIN_REDIRECT_URL = 'post_list'
-LOGOUT_REDIRECT_URL = 'post_list'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 # Application definition

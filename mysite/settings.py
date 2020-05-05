@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,14 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x4cwvhqikh^pw9y=2lixrqawz+27u@&3%pu!ugzs%bx2=5&7sz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = False
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-#ALLOWED_HOSTS = ['alisha-blog-web-app.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'post_list'
+LOGOUT_REDIRECT_URL = 'post_list'
 
 
 # Application definition
@@ -66,7 +65,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['blog/Templates/blog/registration'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,25 +131,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'blog/static')]
-
-DATABASES['default'] = dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-DEBUG = False
-
-STRIPE_API_TEST_PK = os.environ.get('STRIPE_API_TEST_PK')
-STRIPE_API_TEST_SK = os.environ.get('STRIPE_API_TEST_SK')
-
-STRIPE_API_LIVE_PK = os.environ.get('STRIPE_API_LIVE_PK')
-STRIPE_API_LIVE_SK = os.environ.get('STRIPE_API_LIVE_SK')
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'blog/static')]
 
 

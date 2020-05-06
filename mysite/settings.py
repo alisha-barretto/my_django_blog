@@ -23,7 +23,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,'Templates')
 SECRET_KEY = 'x4cwvhqikh^pw9y=2lixrqawz+27u@&3%pu!ugzs%bx2=5&7sz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

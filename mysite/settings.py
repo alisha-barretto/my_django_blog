@@ -20,10 +20,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,'Templates')
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x4cwvhqikh^pw9y=2lixrqawz+27u@&3%pu!ugzs%bx2=5&7sz'
+#SECRET_KEY = 'x4cwvhqikh^pw9y=2lixrqawz+27u@&3%pu!ugzs%bx2=5&7sz'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -56,7 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-  #  'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
@@ -130,7 +133,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'blog/static')]
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
